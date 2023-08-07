@@ -50,7 +50,7 @@ variable "instance_user" {
 
 variable "environment" {
   type    = string
-  default = "env"
+  default = "vr-core"
 }
 
 variable "replica_set_name" {
