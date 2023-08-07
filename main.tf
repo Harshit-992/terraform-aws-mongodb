@@ -240,7 +240,7 @@ resource "aws_instance" "mongo_primary" {
     aws_key_pair.ssh_key
   ]
 }
-resource "aws_security_group" "mongo_sg" {
+resource "aws_security_group" "mongo_sg-dev" {
   name   = "MongoDB_SG-dev"
   vpc_id = var.vpc_id
   ingress {
