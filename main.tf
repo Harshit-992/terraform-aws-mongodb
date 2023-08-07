@@ -132,7 +132,7 @@ resource "aws_instance" "mongo_secondary" {
   key_name                    = var.key_name
   subnet_id                   = var.mongo_subnet_id
   user_data                   = data.template_file.userdata.rendered
-  vpc_security_group_ids      = ["${aws_security_group.mongo_sg.id}"]
+  vpc_security_group_ids      = ["${aws_security_group.mongo_sg-dev.id}"]
   iam_instance_profile        = aws_iam_instance_profile.mongo-instance-profile.name
   associate_public_ip_address = false
   root_block_device {
@@ -191,7 +191,7 @@ resource "aws_instance" "mongo_primary" {
   key_name                    = var.key_name
   subnet_id                   = var.mongo_subnet_id
   user_data                   = data.template_file.userdata.rendered
-  vpc_security_group_ids      = ["${aws_security_group.mongo_sg.id}"]
+  vpc_security_group_ids      = ["${aws_security_group.mongo_sg-dev.id}"]
   iam_instance_profile        = aws_iam_instance_profile.mongo-instance-profile.name
   associate_public_ip_address = false
   root_block_device {
@@ -240,7 +240,7 @@ resource "aws_instance" "mongo_primary" {
     aws_key_pair.ssh_key
   ]
 }
-resource "aws_security_group" "mongo_sg" {
+resource "aws_security_group" "mongo_sg-dev" {
   name   = "MongoDB_SG-dev"
   vpc_id = var.vpc_id
   ingress {
