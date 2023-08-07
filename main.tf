@@ -241,7 +241,7 @@ resource "aws_instance" "mongo_primary" {
   ]
 }
 resource "aws_security_group" "mongo_sg" {
-  name   = "MongoDB_SG"
+  name   = "MongoDB_SG-dev"
   vpc_id = var.vpc_id
   ingress {
     from_port   = 22
